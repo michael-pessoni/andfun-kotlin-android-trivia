@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -35,6 +36,8 @@ class GameWonFragment : Fragment() {
         binding.nextMatchButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_gameWonFragment_to_gameFragment)
         )
+        val args = GameWonFragmentArgs.fromBundle(requireArguments())
+        Toast.makeText(context, "NumCorrect: ${args.numCorrect}, NumQuestions: ${args.numQuestions}", Toast.LENGTH_SHORT).show()
         return binding.root
     }
 }
